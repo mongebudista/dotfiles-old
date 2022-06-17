@@ -91,7 +91,6 @@ local packer = require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
-    config = function() require'nvim-tree'.setup {} end
   }
 
   -- prettier tabs
@@ -133,7 +132,6 @@ require('plugin-config/trouble')
 require('plugin-config/formatter')
 require('plugin-config/cmp')
 require('plugin-config/autopairs')
-require('plugin-config/dashboard-nvim')
 require('plugin-config/presence')
 require('plugin-config/todo-me-daddy')
 
