@@ -95,19 +95,28 @@ keys = [
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "w", lazy.spawn("vivaldi-stable"), desc="Browser"),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run"), desc="DMenu"),
-    Key([mod], "d", lazy.spawn("rofi -modi drun,run -show drun"), desc="Rofi"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "t", lazy.spawn(terminal + " -e dooit")),
     Key([mod], "p", lazy.spawn(terminal + " -e ncmpcpp")),
     Key([mod], "e", lazy.spawn("thunar")),
+    Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
+    Key([mod], "x",
+        lazy.spawn("/home/jarco/.config/qtile/rofi/bin/powermenu")),
+
+    # Media Keys
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+    Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l"))
 ]
 
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8"]
-group_labels = ["", "", "", "", "", "", "", ""]
+group_extranames = ["www", "vim", "sys", "chat", "mus", "xyz", "vid"]
+group_labels = ["", "", "", "", "", "", "", ""]
 
-for i in range(len(group_names)):
+for i in range(len(group_extranames)):
     groups.append(Group(
         name=group_names[i],
         label=group_labels[i],
@@ -155,8 +164,9 @@ colors = [["#282c34", "#282c34"], ["#1c1f24",
                                    "#1c1f24"], ["#dfdfdf", "#dfdfdf"],
           ["#ff6c6b", "#ff6c6b"], ["#79eb95",
                                    "#79eb95"], ["#da8548", "#da8548"],
-          ["#51afef", "#51afef"], ["#ede180", "#ede180"],
-          ["#000c18", "#000c18"], ["#52caff", "#52caff"]]
+          ["#51afef", "#51afef"], ["#ede180",
+                                   "#ede180"], ["#000c18", "#000c18"],
+          ["#52caff", "#52caff"], ["#ed8b40", "#ed8b40"]]
 
 widget_defaults = dict(font="Ubuntu Mono Bold",
                        fontsize=12,
@@ -172,15 +182,15 @@ def init_widgets_list():
                    padding=6,
                    foreground=colors[2],
                    background=colors[8]),
-        widget.TextBox(
-            text="",
-            font="Ubuntu Nerd Font",
-            scale="False",
+        widget.Image(
+            filename="~/.config/qtile/icons/mine.png",
+            margin_y=1,
             background=colors[8],
-            padding=8,
-            fontsize=18,
-            foreground=colors[4],
-            mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal)}),
+            scale="False",
+            mouse_callbacks={
+                'Button1':
+                lambda: qtile.cmd_spawn("rofi -modi drun,run -show drun")
+            }),
         widget.Sep(linewidth=0,
                    padding=6,
                    foreground=colors[2],
@@ -203,6 +213,27 @@ def init_widgets_list():
                         other_screen_border=colors[4],
                         foreground=colors[2],
                         background=colors[8]),
+        widget.TextBox(text='|',
+                       font="Ubuntu Mono",
+                       background=colors[8],
+                       foreground='474747',
+                       padding=2,
+                       fontsize=14),
+        widget.CurrentLayoutIcon(
+            custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+            foreground=colors[2],
+            background=colors[8],
+            padding=0,
+            scale=0.7),
+        widget.CurrentLayout(foreground=colors[2],
+                             background=colors[8],
+                             padding=5),
+        widget.TextBox(text='|',
+                       font="Ubuntu Mono",
+                       background=colors[8],
+                       foreground='474747',
+                       padding=2,
+                       fontsize=14),
         widget.WindowName(foreground=colors[2],
                           background=colors[8],
                           max_chars=30,
@@ -213,42 +244,36 @@ def init_widgets_list():
                    background=colors[8]),
         Spotify(background=colors[8], max_chars=25),
         widget.Sep(linewidth=0,
-                   padding=200,
+                   padding=150,
                    foreground=colors[2],
                    background=colors[8]),
         widget.Battery(battery="BAT1",
-                       discharge_char=" ",
+                       discharge_char=" ",
                        font="Ubuntu Nerd Font",
-                       charge_char="^",
+                       charge_char=" ",
                        show_short_text=False,
                        empty_char="x",
                        full_char=" ",
                        fontsize=12,
                        format='{char}  {percent:2.0%}',
-                       background=colors[7],
-                       foreground=colors[1],
-                       update_interval=60),
-        widget.Sep(linewidth=0,
-                   padding=6,
-                   foreground=colors[2],
-                   background=colors[8]),
-        widget.Net(interface="wlan0",
-                   format='Net: {down} ↓↑ {up}',
-                   foreground=colors[1],
-                   background=colors[4],
-                   padding=5),
-        widget.Sep(linewidth=0,
-                   padding=6,
-                   foreground=colors[2],
-                   background=colors[8]),
-        widget.PulseVolume(foreground=colors[1],
-                           background=colors[7],
-                           limit_max_volume=True,
-                           fmt='Vol: {}',
+                       background=colors[8],
+                       foreground=colors[2],
+                       update_interval=30),
+        widget.TextBox(text='×',
+                       font="Ubuntu Nerd Font",
+                       background=colors[8],
+                       foreground=colors[2],
+                       padding=5,
+                       fontsize=14),
+        widget.PulseVolume(foreground=colors[2],
+                           background=colors[8],
+                           limit_max_volume=False,
+                            font="Ubuntu Nerd Font",
+                           fmt=' {}',
                            padding=5),
         widget.Sep(linewidth=0,
-                   padding=6,
-                   foreground=colors[2],
+                   padding=60,
+                   foreground=colors[0],
                    background=colors[8]),
         widget.Clock(foreground=colors[2],
                      background=colors[8],
@@ -258,7 +283,7 @@ def init_widgets_list():
     return widgets_list
 
 
-screens = [Screen(top=bar.Bar(widgets=init_widgets_list(), size=25))]
+screens = [Screen(top=bar.Bar(widgets=init_widgets_list(), size=20))]
 
 # Drag floating layouts.
 mouse = [
