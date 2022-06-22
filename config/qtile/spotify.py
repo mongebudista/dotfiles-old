@@ -44,9 +44,9 @@ class Spotify(base.ThreadPoolText):
         base.ThreadPoolText.__init__(self, text='', **config)
         self.add_defaults(Spotify.defaults)
         self.add_callbacks({
-            'Button2': self.go_to_spotify,
-            'Button3': self.next_music,
             'Button1': self.toggle_music,
+            'Button4': self.go_to_spotify,
+            'Button3': self.next_music,
         })
 
     def _is_proc_running(self, proc_name: str) -> bool:

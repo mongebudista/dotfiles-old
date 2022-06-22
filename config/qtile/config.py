@@ -108,7 +108,11 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
-    Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l"))
+    Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l")),
+    
+    # Wallpaper
+    Key([mod, "shift"], "n", lazy.spawn("variety -p")),
+    Key([mod, "shift"], "m", lazy.spawn("variety -n")),
 ]
 
 groups = []
@@ -183,7 +187,7 @@ def init_widgets_list():
                    foreground=colors[2],
                    background=colors[8]),
         widget.Image(
-            filename="~/.config/qtile/icons/mine.png",
+            filename="~/.config/qtile/icons/imp.png",
             margin_y=1,
             background=colors[8],
             scale="False",
@@ -244,7 +248,7 @@ def init_widgets_list():
                    background=colors[8]),
         Spotify(background=colors[8], max_chars=25),
         widget.Sep(linewidth=0,
-                   padding=150,
+                   padding=300,
                    foreground=colors[2],
                    background=colors[8]),
         widget.Battery(battery="BAT1",
@@ -262,7 +266,7 @@ def init_widgets_list():
         widget.TextBox(text='×',
                        font="Ubuntu Nerd Font",
                        background=colors[8],
-                       foreground=colors[2],
+                       foreground=colors[6],
                        padding=5,
                        fontsize=14),
         widget.PulseVolume(foreground=colors[2],
@@ -271,13 +275,21 @@ def init_widgets_list():
                             font="Ubuntu Nerd Font",
                            fmt=' {}',
                            padding=5),
-        widget.Sep(linewidth=0,
-                   padding=60,
-                   foreground=colors[0],
-                   background=colors[8]),
+        widget.TextBox(text='×',
+                       font="Ubuntu Nerd Font",
+                       background=colors[8],
+                       foreground=colors[6],
+                       padding=5,
+                       fontsize=14),
         widget.Clock(foreground=colors[2],
                      background=colors[8],
-                     format="%A, %B %d - %H:%M "),
+                     format="%H:%M "),
+        widget.TextBox(text='×',
+                       font="Ubuntu Nerd Font",
+                       background=colors[8],
+                       foreground=colors[6],
+                       padding=5,
+                       fontsize=14),
         widget.Systray(background=colors[8], padding=2),
     ]
     return widgets_list
