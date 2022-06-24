@@ -1,4 +1,4 @@
-pfetch
+~/scripts/sysinfo
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -115,3 +115,6 @@ alias dev="cd ~/Dev"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/nvm/init-nvm.sh
+export PATH=$PATH:~/.local/bin:~/.emacs.d/bin
+
+export PATH="$HOME/.poetry/bin:$PATH"
