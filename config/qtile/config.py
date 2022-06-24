@@ -97,7 +97,7 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run"), desc="DMenu"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "t", lazy.spawn(terminal + " -e dooit")),
+    Key([mod], "t", lazy.spawn("kitty -e dooit")),
     Key([mod], "p", lazy.spawn(terminal + " -e ncmpcpp")),
     Key([mod], "e", lazy.spawn("thunar")),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
@@ -106,6 +106,7 @@ keys = [
 
     # Media Keys
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l")),
@@ -350,4 +351,4 @@ def start_once():
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = "LG3D"
+wmname = "qtile"
