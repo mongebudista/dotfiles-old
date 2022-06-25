@@ -45,7 +45,7 @@ keys = [
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key(
         [mod],
-        "space",
+        "Tab",
         lazy.layout.next(),
         desc="Move window focus to other window"
     ),  # Move windows between left/right columns or move up/down in current stack.
@@ -91,7 +91,7 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "space", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "w", lazy.spawn("vivaldi-stable"), desc="Browser"),
     Key([mod, "shift"], "d", lazy.spawn("dmenu_run"), desc="DMenu"),
@@ -109,6 +109,16 @@ keys = [
     Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
+   
+    # Brightness
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")), 
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")), 
+   
+    # Volume Keys
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%")),
+    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    # Screen Lock
     Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l")),
     
     # Wallpaper
@@ -150,7 +160,7 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(border_focus="#79eb95", border_width=3),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
