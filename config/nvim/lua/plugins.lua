@@ -80,9 +80,9 @@ local packer = require('packer').startup(function(use)
   -- better highlighting
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
-  use {"akinsho/nvim-toggleterm.lua"}
-
-  use {"voldikss/vim-floaterm"}
+  -- Remove internal terms to learn tmux
+  -- use {"akinsho/nvim-toggleterm.lua"}
+  -- use {"voldikss/vim-floaterm"}
 
   use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
 
@@ -127,7 +127,7 @@ require('plugin-config/galaxyline')
 require('plugin-config/gitsigns')
 require('plugin-config/indent-guide-lines')
 require('plugin-config/transparent')
-require('plugin-config/toggleterm')
+-- require('plugin-config/toggleterm')
 require('plugin-config/trouble')
 require('plugin-config/formatter')
 require('plugin-config/cmp')

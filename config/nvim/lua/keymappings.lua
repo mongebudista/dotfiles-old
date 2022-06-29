@@ -17,8 +17,8 @@ map('', 'ç', 'l', opts)
 map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 
 -- Toggle Terminal (F9)
-map("n", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
-map("t", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
+-- map("n", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
+-- map("t", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
 
 -- Navigate between float terminals (Space + , | Space + .)
 map("t", "<leader>.", "<cmd>FloatermNext<cr>", { silent = true })
