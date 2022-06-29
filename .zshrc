@@ -1,9 +1,12 @@
-~/scripts/sysinfo
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+# MPD Stuffs
+export MPD_HOST=127.0.0.1
+export MPD_PORT=6601
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,6 +115,9 @@ alias pf="pfetch"
 alias vim="nvim"
 
 alias dev="cd ~/Dev"
+
+# My personal Neofetch
+alias sf="~/scripts/sysinfo"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/nvm/init-nvm.sh
