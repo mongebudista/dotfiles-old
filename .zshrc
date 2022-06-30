@@ -114,6 +114,8 @@ alias cat="bat --style=auto"
 alias pf="pfetch"
 alias vim="nvim"
 
+alias ide="~/scripts/tmux-dev.sh"
+
 alias dev="cd ~/Dev"
 
 # My personal Neofetch
@@ -121,6 +123,6 @@ alias sf="~/scripts/sysinfo"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/nvm/init-nvm.sh
-export PATH=$PATH:~/.local/bin:~/.emacs.d/bin
+export PATH=$PATH:~/.local/bin:~/.emacs.d/bin:~/.dotnet/tool
 
 export PATH="$HOME/.poetry/bin:$PATH"
