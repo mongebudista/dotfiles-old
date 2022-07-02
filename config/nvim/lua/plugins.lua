@@ -17,6 +17,7 @@ local packer = require('packer').startup(function(use)
   use {"xiyaowong/nvim-transparent"}
     -- colorscheme
   use 'folke/tokyonight.nvim'
+  use 'Mofiqul/dracula.nvim'
 
   use {"folke/trouble.nvim"}
 

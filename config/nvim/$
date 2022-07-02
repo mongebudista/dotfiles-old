@@ -28,13 +28,13 @@ local li = {
   -- block
   b = '█',
   -- bottom left
-  bl = u'0F1A', -- '',
+  bl = u'e0b8', -- '',
   -- bottom right
-  br = u'0F1A', -- '',
+  br = u'e0ba', -- '',
   -- top left
-  tl = u'0F1A', -- '',
+  tl = u'e0bc', -- '',
   -- top right
-  tr = u'0F1A' -- '',
+  tr = u'e0be' -- '',
 }
 
 -- taken from LunarVim
@@ -44,7 +44,7 @@ local colors = {
     yellow = '#FFEB68',
     dark_yellow = '#D7BA7D',
     cyan = '#4EC9B0',
-    green = '#79EB95',
+    green = '#608B4E',
     light_green = '#B5CEA8',
     string_orange = '#CE9178',
     orange = '#FF8800',
@@ -57,8 +57,7 @@ local colors = {
     red = '#D16969',
     error_red = '#F44747',
     info_yellow = '#FFCC66',
-    white = '#FFFFFF',
-    pink = '#FF91FF'
+    white = '#FFFFFF'
 }
 
 -- list of windows for which short line will be used
@@ -73,8 +72,8 @@ section.left[1] = {
     provider = function()
       -- define color for each mode
       local mode_color = {
-        n = colors.pink,        -- normal
-        i = colors.green, -- insert
+        n = colors.blue,        -- normal
+        i = colors.grey, -- insert
         v = colors.purple,      -- visual
         [''] = colors.purple, -- visual block
         V = colors.purple,      -- visual line
@@ -98,7 +97,7 @@ section.left[1] = {
       vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color[vim.fn.mode()])
 
       -- returns the text that will be displayed in this section
-      return li.b..' '
+      return li.b..li.tl..' '
     end,
     highlight = {colors.red, colors.bg}
   }
@@ -201,10 +200,10 @@ section.right[4] = {
 section.right[5] = {
   Space2 = {
     provider = function()
-      return li.br
+      return li.br..li.b
     end,
     separator = ' ',
-    separator_highlight = {colors.white, colors.bg},
+    separator_highlight = {'NONE', colors.bg},
     highlight = {colors.white, colors.bg}
   }
 }
@@ -219,8 +218,8 @@ section.right[7] = {
       return true
     end,
     separator = ' ',
-    separator_highlight = {colors.white, colors.bg},
-    icon = '  ',
+    separator_highlight = {colors.bg_sec, colors.bg_sec},
+    icon = '   ',
     highlight = {colors.white, colors.bg}
   }
 }
@@ -229,9 +228,9 @@ section.right[7] = {
 section.right[8] = {
   BufferType = {
     provider = 'FileTypeName',
-    separator = ' '..li.bl..' ',
-    separator_highlight = {colors.white, colors.bg},
-    highlight = {colors.light_blue, colors.bg}
+    separator = li.b..li.tl..' ',
+    separator_highlight = {colors.black, colors.bg},
+    highlight = {colors.bg_sec, colors.bg}
   }
 }
 section.right[9] = {
@@ -240,18 +239,18 @@ section.right[9] = {
     condition = condition.hide_in_width,
     separator = ' ',
     separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.bg_sec, colors.bg}
+    highlight = {colors.grey, colors.bg}
   }
 }
 -- cosmetics: right dash
 section.right[10] = {
   LastDash = {
     provider = function()
-      return li.b
+      return li.tr..li.b
     end,
     separator = ' ',
     separator_highlight = {'NONE', colors.bg},
-    highlight = {colors.pink, colors.bg}
+    highlight = {colors.bg_sec, colors.bg}
   }
 }
 

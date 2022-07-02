@@ -36,7 +36,7 @@ class Spotify(base.ThreadPoolText):
         ("play_icon", '▶', "icon to display when playing music"),
         ("pause_icon", '⏸', "icon to display when music paused"),
         ("update_interval", 0.5, "polling rate in seconds"),
-        ("format", "{icon} {artist}:{album} - {track}",
+        ("format", "{icon} {artist} - {track}",
          "Spotify display format")
     ]
 

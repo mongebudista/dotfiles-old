@@ -77,7 +77,7 @@ require"lsp_signature".setup({
     bind = true, -- This is mandatory, otherwise border config won't get registered.
     floating_window = true, -- show hint in a floating window, set to false for virtual text only mode
     doc_lines = 2, -- Set to 0 for not showing doc
-    hint_prefix = "🐢 ",
+    hint_prefix = "裏付 ",
     -- use_lspsaga = true,  -- set to true if you want to use lspsaga popup
     handler_opts = {
         border = "shadow" -- double, single, shadow, none

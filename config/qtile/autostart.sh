@@ -2,3 +2,4 @@
 
 picom &
 variety --resume &
+mpd &

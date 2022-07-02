@@ -8,12 +8,11 @@
 ## Import files (Colors, Fonts, Etc)
 import:
   - ~/.config/i3/alacritty/colors.yml
-  - ~/.config/i3/alacritty/fonts.yml
 
 ## Set environment variables
 env:
   TERM: alacritty
-  WINIT_X11_SCALE_FACTOR: '1.0'
+  WINIT_X11_SCALE_FACTOR: "1.0"
 
 ## Terminal window settings
 window:
@@ -30,23 +29,21 @@ window:
   dynamic_title: true
   dynamic_padding: false
 
-## scrolling
+  ## scrolling
   history: 10000
   multiplier: 3
 
-## Background opacity
-  opacity: 0.93
+  ## Background opacity
+  opacity: 0.90
 
 ## Cursor
 cursor:
   style: Block
   unfocused_hollow: false
   vi_mode_style: Block
-  
-font: 
-  normal:
-    family: JetBrains Mono
-    style: Medium
-    size: 12
+
+font:
+  family: JetBrains Mono
+  size: 12.0
 ## Live config reload
-live_config_reload: true 
+live_config_reload: true

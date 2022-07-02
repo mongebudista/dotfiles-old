@@ -73,25 +73,25 @@ keybindings:
   # Reference: https://unix.stackexchange.com/questions/563469/conflict-ctrl-i-with-tab-in-normal-mode/563480#563480
   # NOTE: Also, if changing something throws an error, maybe surround the keybind with ""
 
-  move_to_top: [g, home]
-  move_to_bottom: [G, end]
-  move_down: [j, down]
-  shift_down: [J, shift+down]
+  move_to_top: [l, home]
+  move_to_bottom: [L, end]
+  move_down: [k, down]
+  shift_down: [K, shift+down]
   move_up: [k, up]
   shift_up: [K, shift+up]
   edit_node: i
   edit_date: d
   toggle_complete: c
   yank_todo: y # copy todo's about
-  toggle_expand: z
-  toggle_expand_parent: Z
+  toggle_expand: [z, o]
+  toggle_expand_parent: [Z, O]
   remove_node: x
   add_sibling: a
   add_child: A
   spawn_sort_menu: ctrl+s
   start_search: /
-  select_node: [l, ctrl+i]
-  move_focus_to_menu: [h, ctrl+i]
+  select_node: [ç, ctrl+i]
+  move_focus_to_menu: [j, ctrl+i]
   show_help: "?"
   increase_urgency: ["+", "="]
   decrease_urgency: ["-", "_"]
