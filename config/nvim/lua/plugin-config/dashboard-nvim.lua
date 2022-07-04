@@ -1,23 +1,53 @@
+-- New version config change to ~/.local/share/nvim/site/pack/packer/start/dashboard-nvim/lua/dashboard/init.lua
+
 local api,fn,co = vim.api,vim.fn,coroutine
 local db = {}
 
 db.default_banner = {
         [[]],
         [[]],
-        [[     ██╗ █████╗ ██████╗ █████╗  █████╗ ]],
-        [[     ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗]],
-        [[     ██║███████║██████╔╝██║  ╚═╝██║  ██║]],
-        [[██╗  ██║██╔══██║██╔══██╗██║  ██╗██║  ██║]],
-        [[╚█████╔╝██║  ██║██║  ██║╚█████╔╝╚█████╔╝]],
-        [[ ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚════╝  ╚════╝ ]],
+        [[]],
+		[[⠄⠄⠄⠄⠄⠄⢀⣀⣤⣾⣿⣶⣦⣄⡀⠄⣀⣠⣤⣦⣤⣤⣀⠄⠄⠄⠄⠄⠄⠄]],
+	    	[[⠄⠄⠄⠄⣠⣶⣋⣿⢟⣭⣭⣶⣶⣭⣛⡳⠝⡿⠿⠟⣛⣓⣚⣛⠢⠄⠄⠄⠄⠄]],
+		[[⠄⠄⠄⣼⣿⣟⣯⣴⡾⢋⣭⣭⣤⣶⣬⣍⡂⢶⣾⠿⣛⣩⣭⣭⣙⡒⠶⡄⠄⠄]],
+        	[[⠄⠄⣼⡿⢻⣿⣿⠛⣴⣿⣿⣿⣿⣿⣿⣿⣿⣦⠱⣾⣿⣿⣿⣿⣿⣿⣷⣦⡄⠄]],
+		[[⣠⡆⣿⣇⣸⡿⢡⣾⣿⣿⣿⣿⣿⣿⡟⠉⠈⢻⡆⢸⣿⣿⣿⣿⣿⣿⠋⠄⢻⡆]],
+		[[⢿⣿⣿⣿⣿⣿⣎⢻⣿⣿⣿⣿⣿⣿⡇⠰⠆⡸⠃⣸⣿⣿⣿⣿⣿⣿⠄⠇⡸⡁]],
+		[[⣸⣿⣿⣿⣿⣿⣿⣶⣝⠻⢿⣿⣿⠿⠿⠖⣪⡵⣈⡛⠿⢿⣿⣿⠿⠿⣓⣤⠊⠄]],
+		[[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⡶⢟⣋⣥⣾⣿⠿⢿⣶⣶⠶⠾⠿⠟⠁⠄⠄]],
+		[[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣷⣶⣶⣿⣿⣿⣦⠄⠄⠄]],
+		[[⣿⣿⣿⣿⣿⣿⠿⣛⣉⣉⣉⣛⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣛⡀⠄⠄]],
+		[[⣿⣿⣿⣿⣿⣇⠾⠿⣭⣭⣭⣭⣭⣍⣒⣒⠢⠤⠭⠭⣬⡭⠴⠶⠾⣛⠋⠁⠄⠄]],
+		[[⣿⣿⣿⣿⣝⡻⣷⣶⣶⣦⣤⣤⣭⣙⣛⣛⡻⠿⠿⠿⠶⠶⢿⣿⡿⠟⠁⠄⠄⠄]],
+		[[⢝⡻⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠃⠄⠄⠄⠄⠄⠄⠄]],
+		[[⣷⣤⣝⣒⡠⠬⠭⣛⣛⣛⣛⣛⣛⣛⣛⣛⠛⠛⣋⡁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄]],
+		[[⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣶⣶⣶⣶⣾⣿⣿⣿⣷⣄⠄⠄⠄⠄⠄⠄⠄⠄]],
+        [[]],
         [[]],
         [[]],
 }
+
 db.custom_header = nil
 db.custom_footer = nil
+
 db.custom_center = {
-  {icon = '',desc= 'Please Config your own center section ', action=''}
-}
+      {icon = '   ',
+      desc = 'Find  File                          ',
+      action = 'Telescope find_files find_command=rg,--hidden,--files',
+      shortcut = 'SPC f f'},
+      {icon = '   ',
+      desc = 'Search Text                         ',
+      action = 'Telescope live_grep',
+      shortcut = 'SPC s t'
+      },
+      {
+        icon = '   ',
+        desc = 'Recent Files                        ',
+        action = 'Telescope oldfiles',
+        shortcut = 'SPC r f'
+      },
+    }
+
 db.preview_file_Path = ''
 db.preview_file_height = ''
 db.preview_file_width = ''
@@ -129,24 +159,13 @@ local get_length_with_graphics = co.create(function()
 
     if item == 'footer' and db.custom_footer == nil then
       local default_footer = {'','🎉 Have fun with neovim'}
-      if packer_plugins ~= nil then
-        local count = #vim.tbl_keys(packer_plugins)
-        default_footer[2] = '🎉 neovim loaded '.. count .. ' plugins'
-      end
       return default_footer
     end
 
     if item == 'center' then
       local user_conf = {}
-      if next(meta[item]) == nil then
-        table.insert(meta[item],{ desc = 'Please config your own section'})
-      end
       for _,v in pairs(meta[item]) do
-        if v.desc == nil or #v.desc == 0 then
-          db_notify('Miss desc keyword in custom center')
-          return
-        end
-
+        if v.desc == nil then db_notify('Miss desc keyword in custom center') return end
         if v.icon == nil then v.icon = '' end
         if v.shortcut == nil then v.shortcut = '' end
         table.insert(user_conf,v.icon .. v.desc..v.shortcut)
@@ -316,7 +335,6 @@ local set_keymap = function (bufnr)
     ['l'] = '',
     ['w'] = '',
     ['b'] = '',
-    ['<Bs>'] = '',
     ['<CR>'] =  '<cmd>lua require("dashboard").call_line_action()<CR>'
    }
 

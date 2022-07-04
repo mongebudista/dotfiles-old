@@ -1,0 +1,8 @@
+'.CodeMirror.vim-mode:not(.insert-mode):not(.key-buffering) textarea':
+  'ctrl-e': 'view:toggle-preview'
+'.CodeMirror.vim-mode.normal-mode:not(.key-buffering):not(.visual-mode) textarea':
+  'ctrl-x': 'core:cut'
+'body':
+  'ctrl-e': 'view:toggle-preview'
+'global':
+  'cmd-shift-ctrl-n': 'application:quick-note'

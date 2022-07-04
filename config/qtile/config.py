@@ -103,33 +103,37 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc='toggle fullscreen'),
     Key([mod], "x",
         lazy.spawn("/home/jarco/.config/qtile/rofi/bin/powermenu")),
-
+    Key([mod], "s", lazy.spawn("alacritty -e spt")),
     # Media Keys
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioPause", lazy.spawn("playerctl pause")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
-   
+
     # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")), 
-    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")), 
-   
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5")),
+
     # Volume Keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +2%")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -2%")),
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key([], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     # Screen Lock
     Key([mod, "control"], "l", lazy.spawn("betterlockscreen -l")),
-    
+
     # Wallpaper
     Key([mod, "shift"], "n", lazy.spawn("variety -p")),
     Key([mod, "shift"], "m", lazy.spawn("variety -n")),
+
+    # Inkdrop
+    Key([mod, "control"], "i", lazy.spawn("inkdrop"))
 ]
 
 groups = []
 group_names = ["1", "2", "3", "4", "5", "6", "7", "8"]
 group_extranames = ["www", "vim", "sys", "chat", "mus", "xyz", "vid"]
-group_labels = ["", "", "", "", "", "", "", ""]
+group_labels = ["", "", "", "", "", "", "", ""]
 
 for i in range(len(group_extranames)):
     groups.append(Group(
@@ -283,7 +287,7 @@ def init_widgets_list():
         widget.PulseVolume(foreground=colors[2],
                            background=colors[8],
                            limit_max_volume=False,
-                            font="Ubuntu Nerd Font",
+                           font="Ubuntu Nerd Font",
                            fmt=' {}',
                            padding=5),
         widget.TextBox(text='×',

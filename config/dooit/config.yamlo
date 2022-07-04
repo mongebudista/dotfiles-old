@@ -74,11 +74,11 @@ keybindings:
   # NOTE: Also, if changing something throws an error, maybe surround the keybind with ""
 
   move_to_top: [l, home]
-  move_to_bottom: [k, end]
-  move_down: [k, down]
-  shift_down: [K, shift+down]
-  move_up: [l, up]
-  shift_up: [L, shift+up]
+  move_to_bottom: [L, end]
+  move_down: [l, down]
+  shift_down: [L, shift+down]
+  move_up: [k, up]
+  shift_up: [K, shift+up]
   edit_node: i
   edit_date: d
   toggle_complete: c

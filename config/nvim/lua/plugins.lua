@@ -13,13 +13,24 @@ local packer = require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'yonikosiner/todo-me-daddy'
+  -- use 'moaojarco/todo-me-daddy'
 
-  use {"xiyaowong/nvim-transparent"}
     -- colorscheme
   use 'folke/tokyonight.nvim'
   use 'Mofiqul/dracula.nvim'
+  use 'Mofiqul/vscode.nvim'
 
   use {"folke/trouble.nvim"}
+
+-- Using packer
+use({
+  "xiyaowong/nvim-transparent",
+  config = function()
+    require("transparent").setup {
+      enable = true,
+    }
+  end
+})
 
   use {"mhartington/formatter.nvim"}
     -- git integration
