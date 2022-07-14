@@ -1,7 +1,7 @@
 require('gitsigns').setup {
   keymaps = {
     -- Default keymap options
-    noremap = tue,
+    noremap = true,
     buffer = true,
 
     ['n <leader>hn'] = { expr = true, "&diff ? '<leader>hn' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},

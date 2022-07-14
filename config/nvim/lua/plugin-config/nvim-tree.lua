@@ -9,6 +9,7 @@ local list = {
   { key = "<C-t>", cb = tree_cb("tabnew") },
   { key = "<CR>", cb = tree_cb("edit") },
   { key = "o", cb = tree_cb("edit") },
+  { key = "z", cb = tree_cb("edit") },
   { key = "<2-LeftMouse>", cb = tree_cb("edit") },
   { key = "<2-RightMouse>", cb = tree_cb("cd") },
   { key = "<Tab>", cb = tree_cb("preview") },

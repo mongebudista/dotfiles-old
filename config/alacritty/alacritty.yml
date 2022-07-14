@@ -5,10 +5,6 @@
 ## It's a very basic and simple config file, for full configuration...
 ## See, /usr/share/doc/alacritty/example/alacritty.yml
 
-## Import files (Colors, Fonts, Etc)
-import:
-  - ~/.config/i3/alacritty/colors.yml
-
 ## Set environment variables
 env:
   TERM: alacritty
@@ -27,14 +23,14 @@ window:
   decorations: full
   startup_mode: Windowed
   dynamic_title: true
-  dynamic_padding: false
+  dynamic_padding: false 
 
   ## scrolling
   history: 10000
   multiplier: 3
 
   ## Background opacity
-  opacity: 0.90
+  opacity: 0.94
 
 ## Cursor
 cursor:

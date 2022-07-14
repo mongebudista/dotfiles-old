@@ -8,17 +8,17 @@ map('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
 
 -- shift the movement keys by 0 to the right
-map('', 'j', 'h', opts)
-map('', 'k', 'j', opts)
-map('', 'l', 'k', opts)
-map('', 'ç', 'l', opts)
+map('', 'h', 'h', opts)
+map('', 'j', 'j', opts)
+map('', 'k', 'k', opts)
+map('', 'l', 'l', opts)
 
 -- Trouble Toggle (Space + x x)
 map("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 
 -- Toggle Terminal (F9)
--- map("n", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
--- map("t", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
+map("n", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
+map("t", "<F9>", "<cmd>FloatermToggle<cr>", { silent = true })
 
 -- Navigate between float terminals (Space + , | Space + .)
 map("t", "<leader>.", "<cmd>FloatermNext<cr>", { silent = true })
@@ -81,10 +81,10 @@ map('', '<C-r>', '<NOP>', opts)
 -- map('v', '<S-Tab>', '<<_', opts)
 
 -- window movement
-map('', '<C-w>j', '<C-w>h', opts)
-map('', '<C-w>k', '<C-w>j', opts)
-map('', '<C-w>l', '<C-w>k', opts)
-map('', '<C-w>ç', '<C-w>l', opts)
+map('', '<C-w>h', '<C-w>h', opts)
+map('', '<C-w>j', '<C-w>j', opts)
+map('', '<C-w>k', '<C-w>k', opts)
+map('', '<C-w>l', '<C-w>l', opts)
 
 
 -- jumping back and forth

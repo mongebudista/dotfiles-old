@@ -12,6 +12,9 @@ local packer = require('packer').startup(function(use)
     -- Packer should manage itself
   use 'wbthomason/packer.nvim'
 
+  -- C# intellisense
+  use 'OmniSharp/omnisharp-vim'
+
   use 'yonikosiner/todo-me-daddy'
   -- use 'moaojarco/todo-me-daddy'
 
@@ -93,8 +96,8 @@ use({
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- Remove internal terms to learn tmux
-  -- use {"akinsho/nvim-toggleterm.lua"}
-  -- use {"voldikss/vim-floaterm"}
+  use {"akinsho/nvim-toggleterm.lua"}
+  use {"voldikss/vim-floaterm"}
 
   use {"onsails/lspkind-nvim", requires = {{"famiu/bufdelete.nvim"}}}
 
