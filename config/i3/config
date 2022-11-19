@@ -15,7 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:monospace 8
 
-default_border pixel 2
+default_border pixel 4
 default_floating_border none
 default_floating_border none
 title_align center
@@ -23,8 +23,8 @@ title_align center
 client.focused #79eb95 #79eb95 #79eb95 #79eb95
 
 
-gaps inner 10
-gaps outer 0
+gaps inner 4
+gaps outer 4
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -35,7 +35,6 @@ exec --no-startup-id dex --autostart --environment i3
 
 ##-- Autostart ---------------------------
 exec --no-startup-id picom --config ~/.config/i3/picom.conf
-exec --no-startup-id nitrogen --restore
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -70,18 +69,17 @@ bindsym $mod+m 					exec --no-startup-id ~/.config/i3/rofi/bin/mpd
 bindsym $mod+s 					exec --no-startup-id ~/.config/i3/rofi/bin/screenshot
 bindsym $mod+r 					exec --no-startup-id ~/.config/i3/rofi/bin/asroot
 bindsym $mod+w 					exec --no-startup-id ~/.config/i3/rofi/bin/windows
-bindsym $mod+g                  exec --no-startup-id "alacritty -e lazygit"
-bindsym $mod+b			exec --no-startup-id "alacritty -e sudo pacman -Sy"
+bindsym $mod+g          exec --no-startup-id "kitty -e lazygit"
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # Applications
-bindsym $mod+Shift+w exec vivaldi-stable 
-bindsym $mod+Shift+f 			exec --no-startup-id thunar
+bindsym $mod+Shift+w exec firefox
+bindsym $mod+e 			exec --no-startup-id thunar
 # -- Function keys --
-bindsym XF86MonBrightnessUp 	exec --no-startup-id "brightness --inc"
-bindsym XF86MonBrightnessDown 	exec --no-startup-id "brightness --dec"
+bindsym XF86MonBrightnessUp 	exec --no-startup-id "light -A 5"
+bindsym XF86MonBrightnessDown 	exec --no-startup-id "light -U 5"
 bindsym XF86AudioRaiseVolume 	exec --no-startup-id "volume --inc"
 bindsym XF86AudioLowerVolume 	exec --no-startup-id "volume --dec"
 bindsym XF86AudioMute 			exec --no-startup-id "volume --toggle"
@@ -90,14 +88,11 @@ bindsym XF86AudioStop exec "~/scripts/mediakeys.sh stop"
 bindsym XF86AudioPrev exec "~/scripts/mediakeys.sh previous"
 bindsym XF86AudioNext exec "~/scripts/mediakeys.sh next"
 
-# music player
-bindsym $mod+p exec alacritty -e ncmpcpp 
-
 # kill focused window
-bindsym $mod+q kill
-bindsym $mod+c kill
+bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
+
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
@@ -122,6 +117,11 @@ bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Tab workspace back_and_forth
+
+# toggle last window
+bindsym $mod+Tab focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -208,6 +208,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

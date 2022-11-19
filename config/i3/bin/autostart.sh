@@ -5,7 +5,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom dunst ksuperkey mpd xfce-polkit xfce4-power-manager)
+_ps=(picom dunst ksuperkey mpd xfce-polkit xfce4-power-manager polybar)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -38,7 +38,7 @@ hsetroot -cover ~/.config/i3/wallpapers/default.png
 #~/.config/i3/bin/i3comp.sh
 
 # Restore Wallpaper
-exec nitrogen --restore &
+exec variety --resume &
 #Start Polybar
 exec polybar &
 #Transparent
