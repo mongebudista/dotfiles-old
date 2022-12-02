@@ -31,9 +31,27 @@ keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
+
+-- Debug 
+keymap.set('n', '<F5>', ':DapContinue<CR>')
+keymap.set('n', '<F3>', ':DapStepOver<CR>')
+keymap.set('n', '<F2>', ':DapStepInto<CR>')
+keymap.set('n', '<F12>', ':DapOut<CR>')
+keymap.set('n', '<Space>b', ':DapToggleBreakpoint<CR>')
+keymap.set('n', '<Space>b', ':DapToggleBreakpoint<CR>')
+keymap.set('n', '<Space>dr', ':DapToggleRep<CR>')
+
+-- Word Wrap
+keymap.set('n', '<Space>z', ':set nowrap!<Return>')
+
 -- Format Code
--- C#
-keymap.set('n', 'fp', ':Neoformat clangformat<Return>')
+keymap.set('n', '<Space>f', ':lua vim.lsp.buf.format({ async = true })<Return>')
+
+-- Code Action Menu
+keymap.set('n', '<Space>s', ':lua vim.lsp.buf.code_action()<Return>')
+
+-- Toggle Transparent
+keymap.set('n', 'tr', ':TransparentToggle<Return>')
 
 -- TODO Telescope
 keymap.set('n', 'td', ':TodoTelescope<Return>')
