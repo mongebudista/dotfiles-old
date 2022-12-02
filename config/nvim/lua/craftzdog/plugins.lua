@@ -23,15 +23,13 @@ packer.startup(function(use)
   use 'fatih/vim-go'
   use 'ray-x/go.nvim'
   use { 'catppuccin/nvim', as = 'catppuccin',
-  use({
-		    "catppuccin/nvim",
-		    as = "catppuccin",
-		    config = function()
-			    require("catppuccin").setup({})
-		    end,
-		    run = ":CatppuccinCompile",
-	    })
-  }
+  use 'simrat39/rust-tools.nvim',
+  -- Debug
+  use 'mfussenegger/nvim-dap',
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} },
+
+
+  use({ "catppuccin/nvim", as = "catppuccin"}) }
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
   use {
@@ -49,6 +47,7 @@ packer.startup(function(use)
 
   use 'akinsho/nvim-bufferline.lua'
   -- use 'github/copilot.vim'
+  use 'xiyaowong/nvim-transparent'
 
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
