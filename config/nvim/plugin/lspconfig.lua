@@ -102,6 +102,27 @@ nvim_lsp.tailwindcss.setup {}
 
 nvim_lsp.gopls.setup {}
 
+nvim_lsp.html.setup {
+  cmd = {"vscode-html-languageserver", "--stdio"},
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.cssls.setup {
+  cmd = {"css-language-server", "--stdio"},
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.jsonls.setup {
+  cmd = {"vscode-json-languageserver", "--stdio"},
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+
+nvim_lsp.rust_analyzer.setup {}
+
 nvim_lsp.prismals.setup {}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

@@ -5,7 +5,9 @@ saga.init_lsp_saga {
   server_filetype_map = {
     typescript = 'typescript',
     go = 'gopls',
-    cs = 'omnisharp'
+    cs = 'omnisharp',
+    rs = 'rust_analyzer',
+    css = 'cssls'
   }
 }
 
