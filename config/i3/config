@@ -23,8 +23,8 @@ title_align center
 client.focused #79eb95 #79eb95 #79eb95 #79eb95
 
 
-gaps inner 4
-gaps outer 4
+gaps inner 2
+gaps outer 2
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -62,14 +62,14 @@ set $right semicolon
 
 
 # -- Rofi --
-bindsym $mod+F1 				exec --no-startup-id ~/.config/i3/rofi/bin/launcher
+# bindsym $mod+F1 				exec --no-startup-id ~/.config/i3/rofi/bin/launcher
 bindsym $mod+n 					exec --no-startup-id ~/.config/i3/rofi/bin/network_menu
 bindsym $mod+x 					exec --no-startup-id ~/.config/i3/rofi/bin/powermenu
-bindsym $mod+m 					exec --no-startup-id ~/.config/i3/rofi/bin/mpd
-bindsym $mod+s 					exec --no-startup-id ~/.config/i3/rofi/bin/screenshot
-bindsym $mod+r 					exec --no-startup-id ~/.config/i3/rofi/bin/asroot
-bindsym $mod+w 					exec --no-startup-id ~/.config/i3/rofi/bin/windows
-bindsym $mod+g          exec --no-startup-id "kitty -e lazygit"
+# bindsym $mod+m 					exec --no-startup-id ~/.config/i3/rofi/bin/mpd
+# bindsym $mod+s 					exec --no-startup-id ~/.config/i3/rofi/bin/screenshot
+# bindsym $mod+r 					exec --no-startup-id ~/.config/i3/rofi/bin/asroot
+# bindsym $mod+w 					exec --no-startup-id ~/.config/i3/rofi/bin/windows
+# bindsym $mod+g          exec --no-startup-id "kitty -e lazygit"
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -91,8 +91,13 @@ bindsym XF86AudioNext exec "~/scripts/mediakeys.sh next"
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# emoji picker (win+.) 
+bindsym $mod+period exec emoji-picker
 
+# inkdrop
+bindsym $mod+Shift+i exec inkdrop 
+
+# start dmenu (a program launcher)
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 bindsym $mod+d exec "rofi -modi drun,run -show drun"
