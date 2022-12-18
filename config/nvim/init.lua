@@ -1,4 +1,4 @@
-require('craftzdog.base')
-require('craftzdog.highlights')
-require('craftzdog.maps')
-require('craftzdog.plugins')
+require('moaojarco.plugins')
+require('moaojarco.base')
+require('moaojarco.highlights')
+require('moaojarco.maps')
