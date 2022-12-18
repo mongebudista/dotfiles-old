@@ -55,6 +55,7 @@ todo.setup {
       "--with-filename",
       "--line-number",
       "--column",
+      "--hidden"
     },
     -- regex that will be used to match keywords.
     -- don't replace the (KEYWORDS) placeholder

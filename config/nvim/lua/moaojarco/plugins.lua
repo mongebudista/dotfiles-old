@@ -19,14 +19,23 @@ packer.startup(function(use)
 
   --LSP autocomplete
   use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp' -- Completion
-  use 'neovim/nvim-lspconfig' -- LSP
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
-  use 'L3MON4D3/LuaSnip'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+
+  use { -- Autocompletion
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
+
+  use { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Useful status updates for LSP
+      'j-hui/fidget.nvim',
+    },
+  }
 
 
   -- Debug
@@ -40,10 +49,7 @@ packer.startup(function(use)
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
   use 'kyazdani42/nvim-web-devicons' -- File icons
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/zen-mode.nvim'
   use 'folke/todo-comments.nvim'
@@ -52,6 +58,20 @@ packer.startup(function(use)
   -- use 'github/copilot.vim'
   use 'xiyaowong/nvim-transparent'
 
+    use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
+
+  -- Fuzzy Finder (files, lsp, etc)
+  use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
+  use 'nvim-telescope/telescope-file-browser.nvim'
+
+  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+
+
+   -- Git related plugins
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
 end)

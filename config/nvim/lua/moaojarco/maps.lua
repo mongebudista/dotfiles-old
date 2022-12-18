@@ -32,7 +32,7 @@ keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
 
--- Debug 
+-- Debug
 keymap.set('n', '<F5>', ':DapContinue<CR>')
 keymap.set('n', '<F3>', ':DapStepOver<CR>')
 keymap.set('n', '<F2>', ':DapStepInto<CR>')
@@ -53,5 +53,35 @@ keymap.set('n', '<Space>s', ':lua vim.lsp.buf.code_action()<Return>')
 -- Toggle Transparent
 keymap.set('n', 'tr', ':TransparentToggle<Return>')
 
+keymap.set('n', '<Space>?', ':Telescope oldfiles<Return>')
+keymap.set('n', '<Space><Space>', ':Telescope buffers<Return>')
+
+keymap.set('n', '<Space>sf', ':Telescope find_files<Return>')
+keymap.set('n', '<Space>sh', ':Telescope help_tags<Return>')
+keymap.set('n', '<Space>sw', ':Telescope grep_string<Return>')
+keymap.set('n', '<Space>sg', ':Telescope live_grep<Return>')
+keymap.set('n', '<Space>sd', ':Telescope diagnostics<Return>')
+
+keymap.set('n', '<Space>rn', ':lua vim.lsp.buf.rename()<Return>')
+keymap.set('n', '<Space>ca', ':lua vim.lsp.buf.code_action()<Return>')
+keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<Return>')
+keymap.set('n', 'gr', ':Telescope lsp_references<Return>')
+keymap.set('n', 'gI', ':lua vim.lsp.buf.implementation()<Return>')
+keymap.set('n', '<Space>D', ':lua vim.lsp.buf.type_definition()<Return>')
+keymap.set('n', '<Space>ds', ':Telescope lsp_document_symbols<Return>')
+keymap.set('n', '<Space>ws', ':Telescope lsp_dynamic_workspace_symbols<Return>')
+
+-- See `:help K` for why this keymap
+keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<Return>')
+keymap.set('n', '<C-k>', ':lua vim.lsp.buf.signature_help()<Return>')
+
+-- Lesser used LSP functionality
+keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<Return>')
+keymap.set('n', '<Space>wa', ':lua vim.lsp.buf.add_workspace_folder()<Return>')
+keymap.set('n', '<Space>wr', ':lua vim.lsp.buf.remove_workspace_folder()<Return>')
+keymap.set('n', '<Space>wl', function()
+  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end)
+
 -- TODO Telescope
-keymap.set('n', 'td', ':TodoTelescope<Return>')
+keymap.set('n', '<Space>td', ':TodoTelescope<Return>')
