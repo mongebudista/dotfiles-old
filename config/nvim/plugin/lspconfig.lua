@@ -100,18 +100,7 @@ nvim_lsp.sumneko_lua.setup {
 
 nvim_lsp.tailwindcss.setup {}
 
-nvim_lsp.gopls.setup {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	settings = {
-		gopls = {
-			gofumpt = true,
-		},
-	},
-	flags = {
-		debounce_text_changes = 150,
-	},
-}
+nvim_lsp.gopls.setup {}
 
 nvim_lsp.html.setup {
   cmd = {"vscode-html-languageserver", "--stdio"},

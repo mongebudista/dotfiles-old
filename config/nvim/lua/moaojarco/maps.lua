@@ -32,7 +32,7 @@ keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
 
--- Debug
+-- Debug 
 keymap.set('n', '<F5>', ':DapContinue<CR>')
 keymap.set('n', '<F3>', ':DapStepOver<CR>')
 keymap.set('n', '<F2>', ':DapStepInto<CR>')
@@ -50,8 +50,12 @@ keymap.set('n', '<Space>f', ':lua vim.lsp.buf.format({ async = true })<Return>')
 -- Code Action Menu
 keymap.set('n', '<Space>s', ':lua vim.lsp.buf.code_action()<Return>')
 
+
 -- Toggle Transparent
 keymap.set('n', 'tr', ':TransparentToggle<Return>')
+
+-- TODO Telescope
+keymap.set('n', 'td', ':TodoTelescope<Return>')
 
 keymap.set('n', '<Space>?', ':Telescope oldfiles<Return>')
 keymap.set('n', '<Space><Space>', ':Telescope buffers<Return>')
@@ -83,5 +87,3 @@ keymap.set('n', '<Space>wl', function()
   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end)
 
--- TODO Telescope
-keymap.set('n', '<Space>td', ':TodoTelescope<Return>')
