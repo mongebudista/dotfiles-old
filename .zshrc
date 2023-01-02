@@ -4,9 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# MPD Stuffs
-export MPD_HOST=127.0.0.1
-export MPD_PORT=6601
+export DOTNET_ROOT=/usr/share/dotnet
+export MSBuildSDKsPath=$DOTNET_ROOT/sdk/$(${DOTNET_ROOT}/dotnet --version)/Sdks
+export PATH=${PATH}:${DOTNET_ROOT}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,12 +74,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-z
-)
+plugins=(git zsh-autosuggestions z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,21 +103,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias ls="exa --icons"
 alias cat="bat --style=auto"
 alias pf="pfetch"
 alias vim="nvim"
 
-alias ide="~/scripts/tmux-dev.sh"
-
-alias dev="cd ~/Dev"
+alias dev="~/scripts/tmux-dev.sh"
+alias lg="lazygit"
 
 # My personal Neofetch
 alias sf="~/scripts/sysinfo"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/nvm/init-nvm.sh
-export PATH=$PATH:~/.local/bin:~/.emacs.d/bin:~/.dotnet/tool
-
-export PATH="$HOME/.poetry/bin:$PATH"
