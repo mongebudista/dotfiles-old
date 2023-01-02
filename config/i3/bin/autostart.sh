@@ -5,7 +5,7 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom dunst ksuperkey mpd xfce-polkit xfce4-power-manager polybar)
+_ps=(picom dunst ksuperkey mpd xfce-polkit xfce4-power-manager polybar blueman-applet)
 for _prs in "${_ps[@]}"; do
 	if [[ `pidof ${_prs}` ]]; then
 		killall -9 ${_prs}
@@ -26,15 +26,15 @@ ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # Restore wallpaper
-hsetroot -cover ~/.config/i3/wallpapers/default.png
+# hsetroot -cover ~/.config/i3/wallpapers/default.png
 
-# Lauch notification daemon
+# Launch notification daemon
 #~/.config/i3/bin/i3dunst.sh
 
-# Lauch polybar
+# Launch polybar
 # ~/.config/i3/bin/i3bar.sh
 
-# Lauch compositor
+# Launch compositor
 #~/.config/i3/bin/i3comp.sh
 
 # Restore Wallpaper
@@ -45,5 +45,7 @@ exec polybar &
 exec picom &
 # Bluetooth Headphone Controls
 exec mpris-proxy &
+
+exec blueman-applet &
 
 exec mpd &

@@ -76,7 +76,7 @@ bindsym $mod+Return exec kitty
 
 # Applications
 bindsym $mod+Shift+w exec firefox
-bindsym $mod+e 			exec --no-startup-id thunar
+bindsym $mod+e 			exec --no-startup-id nautilus
 # -- Function keys --
 bindsym XF86MonBrightnessUp 	exec --no-startup-id "light -A 5"
 bindsym XF86MonBrightnessDown 	exec --no-startup-id "light -U 5"
@@ -94,8 +94,8 @@ bindsym $mod+Shift+q kill
 # emoji picker (win+.) 
 bindsym $mod+period exec emoji-picker
 
-# inkdrop
-bindsym $mod+Shift+i exec inkdrop 
+bindsym $mod+Shift+p exec "variety -p"
+bindsym $mod+Shift+n exec "variety -n"
 
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec --no-startup-id dmenu_run
