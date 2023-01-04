@@ -1,1 +1,1 @@
-# dotfiles in arch
+# dotfiles
