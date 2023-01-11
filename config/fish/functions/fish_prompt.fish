@@ -1,1 +1,0 @@
-/home/jarco/.local/share/omf/themes/rider/fish_prompt.fish
