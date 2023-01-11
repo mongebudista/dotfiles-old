@@ -9,7 +9,7 @@
 
 Download and install Hack Nerd Font (Normal and Mono).
 
-[Hack.zip](https://www.nerdfonts.com/font-downloads">Hack.zip)
+[Hack.zip](https://www.nerdfonts.com/font-downloads)
 
 <p>Download and install NotoColorEmoji from AUR</p>
 
