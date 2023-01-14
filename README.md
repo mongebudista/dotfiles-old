@@ -1,7 +1,7 @@
 # Preview
 ![Preview!](https://i.ibb.co/pRDHRp7/2023-01-11-06-18.png)
 
-- distro: Arch Linux
+- distro: EndeavourOS
 - wm: i3wm
 - Packages required: variety, feh, rofi, dmenu, firefox, picom, polybar, kitty
 
